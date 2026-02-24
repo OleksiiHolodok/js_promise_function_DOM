@@ -1,9 +1,9 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     if (!element) {
-      return;
+      return reject(new Error('The provided element is invalid.'));
     }
 
     const handler = () => {
